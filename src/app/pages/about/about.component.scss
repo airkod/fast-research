@@ -1,0 +1,31 @@
+.about {
+  width: 300px;
+  height: 120px;
+  padding: 30px;
+
+  .buttons {
+    zoom: 0.87;
+  }
+
+  .row {
+    display: flex;
+
+    .logo {
+      img {
+        max-height: 56px;
+      }
+    }
+
+    .content {
+      padding-left: 25px;
+
+      h2 {
+        margin: 0;
+      }
+
+      h4 {
+        margin-top: 10px;
+      }
+    }
+  }
+}

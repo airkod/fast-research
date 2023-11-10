@@ -77,3 +77,15 @@ body {
     }
   }
 }
+
+.container {
+  width: 100%;
+  position: relative;
+
+  > .about {
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    z-index: 1000;
+  }
+}

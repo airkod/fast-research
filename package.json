@@ -1,11 +1,11 @@
 {
   "name": "fast-research",
-  "version": "0.9",
+  "version": "0.9.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build && cd dist/fast-research && tar -czvf fr-v0.9.tar.gz . && cd ../.. && mv dist/fast-research/fr-v0.9.tar.gz releases/."
+    "deploy": "ng build && cd dist && tar -czvf fr-v0.9.5.tar.gz fast-research && cd .. && mv dist/fr-v0.9.5.tar.gz releases/."
   },
   "private": true,
   "dependencies": {

@@ -21,6 +21,7 @@ import { HistoryItemComponent } from "@pages/history/history-item/history-item.c
 import { LinkPreviewComponent } from "@components/link-preview/link-preview.component";
 import { OpenaiComponent } from "@components/openai/openai.component";
 import { KeywordsComponent } from "@components/keywords/keywords.component";
+import { AboutComponent } from "@pages/about/about.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { KeywordsComponent } from "@components/keywords/keywords.component";
     LinkPreviewComponent,
     OpenaiComponent,
     KeywordsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
