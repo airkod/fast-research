@@ -1,0 +1,18 @@
+<div class="answer" *ngIf="openai">
+  <mat-divider></mat-divider>
+  <div class="progress" [class.v20]="openai.correspondence <= 20">
+    <div class="spinner" style="width: {{openai.correspondence}}%;"></div>
+    <div class="correspondence">
+      {{openai.correspondence}}%
+    </div>
+  </div>
+  <div class="description">
+    <h3 class="heading">Why {{openai.correspondence}}%?</h3>
+    {{openai.description}}
+  </div>
+  <mat-divider></mat-divider>
+  <div class="description">
+    <h3 class="heading">Content summary</h3>
+    {{openai.summary}}
+  </div>
+</div>

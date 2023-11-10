@@ -1,0 +1,81 @@
+<div class="card">
+
+  <div class="filter" *ngIf="total > 0">
+    <div class="search">
+      <mat-form-field class="fullWidth">
+        <mat-label>Search</mat-label>
+        <input matInput #searchInput placeholder="Ex. Search" [(ngModel)]="filter.search" (keyup.enter)="load(); searchInput.blur();">
+      </mat-form-field>
+    </div>
+    <div class="interests">
+      <mat-form-field class="fullWidth" *ngIf="interests.length">
+        <mat-select placeholder="Select an interest" [(ngModel)]="filter.interest" (ngModelChange)="interestSelected()">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let interest of interests"
+                      [value]="interest"
+          >
+            {{interest.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="message" *ngIf="total === 0">
+    You haven't explored anything yet.
+    <br>
+    Add interests and enjoy 😀
+  </div>
+  <button *ngIf="total === 0" mat-raised-button color="primary" class="fullWidth" (click)="add()">
+    Add interest
+  </button>
+
+  <ng-container *ngIf="total">
+    <h4 class="heading firstHeading">
+      Today ({{today.length}})
+    </h4>
+    <div class="description" *ngIf="!today?.length && !total">
+      <i>Nothing analyzed today</i>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="description" *ngIf="!today?.length && total">
+      <i>Nothing found</i>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-accordion *ngIf="today.length">
+      <app-history-item *ngFor="let history of today"
+                        [history]="history"></app-history-item>
+    </mat-accordion>
+
+    <h4 class="heading">
+      Yesterday ({{yesterday.length}})
+    </h4>
+    <div class="description" *ngIf="!yesterday?.length && !total">
+      <i>Nothing analyzed yesterday</i>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="description" *ngIf="!yesterday?.length && total">
+      <i>Nothing found</i>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-accordion *ngIf="yesterday.length">
+      <app-history-item *ngFor="let history of yesterday"
+                        [history]="history"></app-history-item>
+    </mat-accordion>
+
+    <h4 class="heading">
+      All time ({{all.length}})
+    </h4>
+    <div class="description lastItem" *ngIf="!all?.length && !total">
+      <i>Nothing was analyzed</i>
+    </div>
+    <div class="description" *ngIf="!all?.length && total">
+      <i>Nothing found</i>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-accordion *ngIf="all.length">
+      <app-history-item *ngFor="let history of all"
+                        [history]="history"></app-history-item>
+    </mat-accordion>
+  </ng-container>
+</div>

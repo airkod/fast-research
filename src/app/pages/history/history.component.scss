@@ -1,0 +1,27 @@
+.firstHeading {
+  margin-top: 0;
+}
+
+.description {
+  mat-divider {
+    margin-top: 20px;
+  }
+
+  &.lastItem {
+    padding-bottom: 25px;
+  }
+}
+
+.filter {
+  display: flex;
+
+  .search {
+    flex: 1;
+    padding-right: 7px;
+  }
+
+  .interests {
+    flex: 1;
+    padding-left: 7px;
+  }
+}

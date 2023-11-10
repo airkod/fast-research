@@ -1,0 +1,24 @@
+<mat-expansion-panel (opened)="state = 'opened'" (closed)="state = 'closed'">
+  <mat-expansion-panel-header>
+    <div class="row">
+      <div class="icon">
+        <img src="{{history.meta.icon}}" *ngIf="history?.meta?.icon?.length" />
+        <img src="assets/default-favicon.png" *ngIf="!history?.meta?.icon?.length" />
+      </div>
+      <div class="title">{{history.meta.title}}</div>
+      <div class="interest">{{history.interest.title}}</div>
+      <div class="value">
+        <mat-chip>
+          {{history.openai.correspondence}}%
+        </mat-chip>
+      </div>
+      <div class="time">{{time()}}</div>
+    </div>
+  </mat-expansion-panel-header>
+
+  <app-keywords [keywords]="history.interest.keywords"></app-keywords>
+  <app-openai [openai]="history.openai"></app-openai>
+  <mat-divider></mat-divider>
+  <app-link-preview [meta]="history.meta"></app-link-preview>
+
+</mat-expansion-panel>

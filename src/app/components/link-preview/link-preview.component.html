@@ -1,0 +1,15 @@
+<div class="link" *ngIf="meta">
+  <div class="preview">
+    <div class="image" *ngIf="meta?.image?.length"
+         style="background-image: url({{meta.image}})"></div>
+
+    <div class="text">
+      <h4 class="metaTitle">{{meta.title}}</h4>
+      <div class="description">{{meta.description}}</div>
+
+      <a class="link" (click)="open()" style="cursor: pointer">
+        {{meta.link}}
+      </a>
+    </div>
+  </div>
+</div>

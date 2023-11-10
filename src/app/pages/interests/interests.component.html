@@ -1,0 +1,31 @@
+<div class="card">
+  <mat-form-field class="fullWidth" *ngIf="total > 0">
+    <mat-label>Search</mat-label>
+    <input matInput #searchInput placeholder="Ex. Search" [(ngModel)]="search" (keyup.enter)="load(); searchInput.blur();">
+  </mat-form-field>
+
+  <mat-accordion *ngIf="interests.length">
+    <app-interest *ngFor="let interest of interests"
+                  [interest]="interest"
+                  (onUpdate)="load()"
+    ></app-interest>
+  </mat-accordion>
+
+  <div class="message" *ngIf="search?.length > 0 && !interests?.length">
+    Nothing found 🥹
+    <br>
+    <button mat-button color="primary" (click)="search = null; load();" style="margin-top: 10px;">
+      Show all
+    </button>
+  </div>
+
+  <div class="message" *ngIf="total === 0">
+    You haven't explored anything yet.
+    <br>
+    Add interests and enjoy 😀
+  </div>
+
+  <button *ngIf="total === 0" mat-raised-button color="primary" class="fullWidth" (click)="add()">
+    Add interest
+  </button>
+</div>

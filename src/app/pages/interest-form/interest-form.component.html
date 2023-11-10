@@ -1,0 +1,37 @@
+<div class="card">
+  <mat-form-field class="fullWidth">
+    <mat-label>Interest name</mat-label>
+    <input matInput placeholder="Ex. John Lennon" [(ngModel)]="title">
+  </mat-form-field>
+
+  <mat-form-field class="fullWidth">
+    <mat-label>Keywords</mat-label>
+
+    <mat-chip-grid #chipGrid aria-label="Enter your interests">
+
+      <mat-chip-row *ngFor="let keyword of keywords"
+                    (removed)="remove(keyword)"
+                    [editable]="true"
+                    (edited)="edit(keyword, $event)"
+                    [aria-description]="'press enter to edit ' + keyword">
+        {{keyword}}
+      </mat-chip-row>
+
+      <input [placeholder]="!keywords.length ? placeholderEmpty : placeholder"
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)" />
+
+    </mat-chip-grid>
+  </mat-form-field>
+
+  <button mat-raised-button
+          color="primary"
+          class="fullWidth"
+          [disabled]="!isValid()"
+          (click)="save()"
+  >Save
+  </button>
+
+</div>

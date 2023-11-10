@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 15px;
+  align-items: center;
+
+  .icon {
+    width: 30px;
+
+    img {
+      max-height: 16px;
+      max-width: 16px;
+    }
+  }
+
+  .title {
+    flex: 1;
+
+    width: 100px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 20px;
+  }
+
+  .value {
+    padding-left: 15px;
+  }
+
+  .time {
+    text-align: right;
+    padding-left: 15px;
+  }
+}

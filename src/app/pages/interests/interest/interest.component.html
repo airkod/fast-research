@@ -1,0 +1,27 @@
+<mat-expansion-panel (opened)="state = 'opened'" (closed)="state = 'closed'">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{interest.title}}
+    </mat-panel-title>
+    <mat-panel-description *ngIf="state === 'closed'">
+      <i>Click to see details</i>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <app-keywords [keywords]="interest.keywords"></app-keywords>
+  <app-openai [openai]="answer"></app-openai>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <div class="textRight">
+    <button mat-raised-button color="primary" (click)="refresh()" *ngIf="answer" style="margin-right: 15px;">
+      Refresh
+    </button>
+    <button mat-raised-button color="primary" (click)="refresh()" *ngIf="!answer" style="margin-right: 15px;">
+      Check compliance
+    </button>
+    <button mat-raised-button color="warn" (click)="delete()">
+      Delete
+    </button>
+  </div>
+</mat-expansion-panel>
