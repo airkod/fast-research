@@ -1,10 +1,9 @@
-import { Component, EventEmitter, Output, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { HistoryInterface } from "@interfaces/history.interface";
 import { HistoryService } from "@services/history.service";
 import { LoaderService } from "@services/loader.service";
 import { InterestService } from "@services/interest.service";
 import { InterestInterface } from "@interfaces/interest.interface";
-import { MatSelect } from "@angular/material/select";
 
 @Component({
   selector: "app-history",
